@@ -52,4 +52,30 @@ class Offer_66Test {
             Assertions.assertEquals(expect[i], result[i]);
         }
     }
+
+    @Test
+    void constructArrA() {
+        Offer_66 offer_66 = new Offer_66();
+        int[] nums = new int[]{1, 2, 3, 4, 5};
+        int[] expect = new int[]{120, 60, 40, 30, 24};
+        int[] result = offer_66.constructArrA(nums);
+
+        for (int i = 0; i < 5; i++) {
+            Assertions.assertEquals(expect[i], result[i]);
+        }
+    }
+
+
+    @Test
+    void constructArrB() {
+        Offer_66 offer_66 = new Offer_66();
+        int[] nums = new int[]{1, 2, 3, 4, 5};
+        int[] expect = new int[]{120, 60, 40, 30, 24};
+        int[] result = offer_66.constructArrB(nums);
+
+        for (int i = 0; i < 5; i++) {
+            Assertions.assertEquals(expect[i], result[i]);
+        }
+    }
+
 }

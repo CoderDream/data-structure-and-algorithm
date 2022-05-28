@@ -19,6 +19,62 @@ package com.coderdream.ch10_math;
  * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
  */
 public class Offer_66 {
+
+    public int[] constructArrA(int[] nums) {
+        // 数组长度
+        int N = nums.length;
+        // 左边元素连乘数组
+        int[] leftOutput = new int[N];
+        // 右边元素连乘数组
+        int[] rightOutput = new int[N];
+        // 左边数组的第一个元素置为1；
+        leftOutput[0] = 1;
+        // 右边数组的最后一个元素置为1；
+        rightOutput[N - 1] = 1;
+        // 设置左边数组，从第二个元素开始相乘
+        for (int i = 1; i < N; i++) {
+            // 所在元素等于前一个元素乘原始数组的前一个元素
+            leftOutput[i] = leftOutput[i - 1] * nums[i - 1];
+        }
+        // 设置右边数组，从倒数第二个元素开始相乘
+        for (int i = N - 2; i >= 0; i--) {
+            // 所在元素等于后一个元素乘原始数组的后一个元素
+            rightOutput[i] = rightOutput[i + 1] * nums[i + 1];
+        }
+
+        int[] b = new int[N];
+        for (int i = 0; i < N; i++) {
+            b[i] = leftOutput[i] * rightOutput[i];
+        }
+        return b;
+    }
+
+    public int[] constructArrB(int[] nums) {
+        // 数组长度
+        int N = nums.length;
+        // 输出数组
+        int[] output = new int[N];
+        // 输出数组的第一个元素置为1；
+        output[0] = 1;
+        // 设置左边数组为输出数组，从第二个元素开始相乘
+        for (int i = 1; i < N; i++) {
+            // 所在元素等于前一个元素乘原始数组的前一个元素
+            output[i] = output[i - 1] * nums[i - 1];
+        }
+        // 右边数组的最后一个元素置为1；
+        int rightOutput = 1;
+        // 设置右边数组，从倒数第二个元素开始相乘
+        for (int i = N - 1; i >= 0; i--) {
+            // 设置输出数组对应位置的值，为左边乘积对应位置的值*右边上次计算后的值
+            output[i] =  output[i] * rightOutput;
+            // 所在元素等于后一个元素乘原始数组的当前元素
+            rightOutput = rightOutput * nums[i];
+        }
+
+        return output;
+    }
+
+
     public int[] constructArr(int[] a) {
         int len = a.length;
         if (len == 0) {
