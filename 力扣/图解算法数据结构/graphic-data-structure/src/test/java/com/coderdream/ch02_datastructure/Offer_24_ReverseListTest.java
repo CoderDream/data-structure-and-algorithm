@@ -34,7 +34,7 @@ class Offer_24_ReverseListTest {
         Assertions.assertEquals(1, node.val);
         Assertions.assertEquals(null, node.next);
     }
-    
+
     @Test
     void reverseListWithRecursive() {
         Offer_24_ReverseList offer24ReverseList = new Offer_24_ReverseList();
